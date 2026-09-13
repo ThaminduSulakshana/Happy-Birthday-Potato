@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You mean the world to me, my Potato 🌹</title>
+<meta name="description" content="An animated rose that quietly tells someone they're admired — greeting them by name. A small, heartfelt keepsake you can send as a link or a printable QR code." />
+<meta name="theme-color" content="#190610" />
+<meta name="author" content="Maksym Sverlovych" />
+<link rel="canonical" href="https://msverlovych.github.io/someone-admires-you/" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "You mean the world to me, my Potato",
+  "alternateName": "Admiration Rose",
+  "url": "https://msverlovych.github.io/someone-admires-you/",
+  "description": "An animated rose that quietly tells someone they're admired, greeting them by name — share it as a link or a printable QR keepsake.",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": "Maksym Sverlovych" },
+  "image": "https://msverlovych.github.io/someone-admires-you/og.png"
+}
+</script>
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="You mean the world to me, my Potato🌹" />
+<meta property="og:description" content="An animated rose that greets someone by name and tells them, gently, that they're admired." />
+<meta property="og:image" content="./og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://msverlovych.github.io/someone-admires-you/" />
+<meta property="og:site_name" content="You mean the world to me, my Potato🌹" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="You mean the world to me, my Potato🌹" />
+<meta name="twitter:description" content="An animated rose that greets someone by name and tells them, gently, that they're admired." />
+<meta name="twitter:image" content="./og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./rose.css" />
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="layer layer--petals" id="petals"></div>
+  <div class="layer layer--dust" id="dust"></div>
+  <div class="layer layer--burst" id="burst"></div>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="scene">
+      <div class="tilt" id="tilt">
+        <div class="rose-wrap">
+          <div class="rose" id="rose">
+            <div class="rose__spin" id="spin"></div>
+            <div class="rose__light"></div>
+            <div class="rose__core"></div>
+            <div class="dew"></div>
+          </div>
+          <div class="stem">
+            <svg width="120" height="150" viewBox="0 0 120 150" fill="none">
+              <path class="draw" d="M60 0 C60 45 60 70 60 150" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
+              <path class="leaf leaf--l" d="M60 64 C36 56 16 64 8 84 C30 92 52 86 60 64 Z" fill="url(#lf)"/>
+              <path class="leaf leaf--r" d="M60 92 C84 84 104 92 112 112 C90 120 68 114 60 92 Z" fill="url(#lf)"/>
+              <defs>
+                <linearGradient id="g" x1="60" y1="0" x2="60" y2="150" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3a6e34"/><stop offset="1" stop-color="#173a1c"/>
+                </linearGradient>
+                <linearGradient id="lf" x1="20" y1="60" x2="100" y2="120" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3f7a3a"/><stop offset="1" stop-color="#173a1c"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="rose-shadow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copy">
+      <span class="copy__label" id="copyLabel">with so much love</span>
+      <p class="copy__line" id="line"></p>
+      <p class="signature" id="sig"></p>
+
+    </div>
+
+    <!-- Scroll Down Prompt -->
+    <a href="#birthdaySection" class="scroll-prompt" id="scrollPrompt" aria-label="Scroll down for birthday surprise">
+      <span class="scroll-prompt__text">Scroll down for your birthday surprise 🌹</span>
+      <svg class="scroll-prompt__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Birthday Experience Content -->
+  <main class="birthday-experience" id="birthdaySection">
+    
+    <!-- Letter Section -->
+    <section class="bday-card bday-letter reveal-on-scroll" id="letterCard">
+      <div class="bday-badge">HAPPY BIRTHDAY TO MY Potato 🎂</div>
+      <h2 class="bday-heading">To the Love of My Life</h2>
+      <div class="bday-divider"><span>🌹</span></div>
+      <div class="bday-letter__body">
+        <p>Today is all about celebrating <strong>YOU</strong> — the wonderful, kind, and beautiful woman who fills every day of my life with happiness, warmth, and laughter.</p>
+        <p>You are my everything. Thank you for being the amazing person that you are, my dear love, and for filling my life with so much love and happiness.</p>
+        <P>You mean so much to me, and the last thing I ever want is to be the reason for your tears.</P>
+        <p>From today onward, I want to love you better, and fill your life with happiness instead of pain. I promise I will keep trying every day to become the person you deserve.</p>
+      </div>
+      <div class="bday-letter__signature">— Forever Yours ❤️</div>
+    </section>
+
+
+
+    <!-- Interactive Birthday Cake & Candle blowout -->
+    <section class="bday-card bday-cake-card reveal-on-scroll" id="cakeCard">
+      <div class="bday-badge">MAKE A BIRTHDAY WISH 🎂</div>
+      <h2 class="bday-heading">Blow Out Your Candle!</h2>
+      <p class="bday-subtext">candle flame to blow out your birthday candle and make your wish come true ✨</p>
+
+      <div class="cake-wrapper">
+        <div class="cake" id="cake">
+          <!-- Candle & Flame -->
+          <div class="candle" id="candle" role="button" aria-label="Blow out candle" tabindex="0">
+            <div class="flame" id="flame">
+              <div class="flame__core"></div>
+              <div class="flame__glow"></div>
+            </div>
+            <div class="wick"></div>
+            <div class="candle__body"></div>
+          </div>
+          <!-- Cake Layers -->
+          <div class="cake-layer cake-layer--top">
+            <div class="icing"></div>
+            <div class="decorations">
+              <span class="berry"></span><span class="berry"></span><span class="berry"></span><span class="berry"></span>
+            </div>
+          </div>
+          <div class="cake-layer cake-layer--middle"></div>
+          <div class="cake-layer cake-layer--bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <div class="wish-reveal" id="wishReveal">
+        <div class="wish-reveal__sparkles">🎉 💖 ✨ 🎈 🌹</div>
+        <h3 class="wish-reveal__title">Wish Granted, My love, dear Potato ❤️</h3>
+        <p class="wish-reveal__text">May every single wish in your heart come true today and throughout the year!</p>
+      </div>
+    </section>
+
+    <!-- Voice Song Dedicated Card -->
+    <section class="bday-card bday-song-card reveal-on-scroll" id="songCard">
+      <div class="bday-badge">YOUR SPECIAL BIRTHDAY SONG 🎵</div>
+      <h2 class="bday-heading">Sung With All My Heart</h2>
+
+      <div class="audio-player-card">
+        <button class="audio-card-play-btn" id="audioCardPlayBtn" type="button" aria-label="Play Happy Birthday Song">
+          <svg class="play-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <svg class="pause-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+        </button>
+
+        <div class="audio-card-info">
+          <div class="audio-card-title">Happy Birthday To My Wife</div>
+          <div class="audio-card-artist">Recorded Voice & Special Song 🎤</div>
+          <div class="audio-card-wave">
+            <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+            <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+            <span class="wave-bar"></span><span class="wave-bar"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bday-footer">
+      <p>Made with endless love, from your loving කොහෙවත් ඉන්න එකා </p>
+      <p class="bday-footer__sub">Happy Birthday <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+      </head>
+      <body>
+        
+      </body>
+      </html></p>
+    </footer>
+
+  </main>
+
+  <!-- Autoplay Prompt Overlay (if browser blocks audio autoplay) -->
+  <div class="autoplay-overlay" id="autoplayOverlay" role="button" tabindex="0">
+    <div class="autoplay-overlay__content">
+      <div class="autoplay-overlay__icon">🌹 🎵</div>
+      <div class="autoplay-overlay__title">Tap anywhere to start your Birthday surprise</div>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" type="button"
+          aria-label="Play music" aria-pressed="false" title="Play music">
+    <span class="music-toggle__bar"></span>
+    <span class="music-toggle__bar"></span>
+    <span class="music-toggle__bar"></span>
+  </button>
+
+  <script type="module" src="./rose.js"></script>
+</body>
+</html>

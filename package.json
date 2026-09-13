@@ -1,0 +1,24 @@
+{
+  "name": "admire",
+  "version": "1.0.0",
+  "description": "An animated rose that quietly admires someone — with a studio to make personalized links and QR codes.",
+  "private": true,
+  "license": "MIT",
+  "author": "Maksym Sverlovych",
+  "scripts": {
+    "start": "parcel src/index.html src/create.html --open",
+    "dev": "parcel src/index.html src/create.html",
+    "build": "parcel build src/index.html src/create.html --public-url https://msverlovych.github.io/someone-admires-you/",
+    "postbuild": "node -e \"const fs=require('fs'); fs.copyFileSync('src/sitemap.xml', 'dist/sitemap.xml'); fs.readdirSync('src').filter(f=>f.endsWith('.txt')).forEach(f=>fs.copyFileSync('src/'+f, 'dist/'+f));\"",
+    "clean": "rm -rf dist .parcel-cache"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "2.16.4",
+    "@parcel/transformer-jsonld": "2.16.4",
+    "parcel": "^2.12.0"
+  }
+}
