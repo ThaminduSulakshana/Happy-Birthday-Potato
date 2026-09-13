@@ -81,15 +81,26 @@ if (!reduce) {
   const tilt = document.getElementById('tilt');
   let tx = 0, ty = 0, cx = 0, cy = 0;
 
-  window.addEventListener('pointermove', (e) => {
+  function updateCursorGlow(x, y) {
     glow.style.opacity = 1;
-    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    dot.style.transform  = `translate(${e.clientX}px, ${e.clientY}px)`;
+    glow.style.transform = `translate(${x}px, ${y}px)`;
+    dot.style.transform  = `translate(${x}px, ${y}px)`;
+  }
+
+  window.addEventListener('pointermove', (e) => {
+    updateCursorGlow(e.clientX, e.clientY);
     const nx = (e.clientX / window.innerWidth  - 0.5);
     const ny = (e.clientY / window.innerHeight - 0.5);
     tx = -ny * 14;   // rotateX
     ty =  nx * 18;   // rotateY
   });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      updateCursorGlow(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
   window.addEventListener('pointerleave', () => { tx = 0; ty = 0; glow.style.opacity = 0; });
 
   (function loop() {
@@ -163,23 +174,31 @@ if (!reduce) {
     }
   }
 
+  let lastBurst = 0;
+  function handleTouchDown(x, y, target) {
+    glow.style.opacity = 1;
+    glow.style.transform = `translate(${x}px, ${y}px)`;
+    dot.style.transform  = `translate(${x}px, ${y}px) scale(2.2)`;
+    setTimeout(() => { dot.style.transform = `translate(${x}px, ${y}px) scale(1)`; }, 160);
+
+    const now = Date.now();
+    if (now - lastBurst < 100) return;
+    lastBurst = now;
+
+    if (!target || !target.closest('.candle')) {
+      triggerBurst(x, y);
+    }
+  }
+
   window.addEventListener('pointerdown', (e) => {
-    // don't trigger burst if clicking interactive elements like buttons
-    if (e.target.closest('button, a, input, .candle, .love-card')) return;
-    dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(2.2)`;
-    setTimeout(() => { dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1)`; }, 160);
-    triggerBurst(e.clientX, e.clientY);
+    handleTouchDown(e.clientX, e.clientY, e.target);
   });
 
-  /* ---- Love Cards Tap Burst ---- */
-  document.querySelectorAll('.love-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      const rect = card.getBoundingClientRect();
-      const cx = e.clientX || (rect.left + rect.width / 2);
-      const cy = e.clientY || (rect.top + rect.height / 2);
-      triggerBurst(cx, cy, 14);
-    });
-  });
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      handleTouchDown(e.touches[0].clientX, e.touches[0].clientY, e.target);
+    }
+  }, { passive: true });
 
   /* ---- Candle Blowout Interaction ---- */
   const candle = document.getElementById('candle');

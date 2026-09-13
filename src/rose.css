@@ -70,7 +70,7 @@ body {
   border-radius:50%;
   background:radial-gradient(circle, rgba(255,210,150,0.10), transparent 62%);
   pointer-events:none;
-  z-index:3;
+  z-index:25;
   transform:translate(-100px,-100px);
   transition:opacity .6s ease;
   opacity:0;
@@ -313,7 +313,7 @@ body::before {
 .layer { position:fixed; inset:0; pointer-events:none; overflow:hidden; }
 .layer--petals { z-index:1; }
 .layer--dust { z-index:1; }
-.layer--burst { z-index:9; }
+.layer--burst { z-index:28; }
 
 .fp {
   position:absolute; top:-6vh;
@@ -844,3 +844,559 @@ body::before {
   letter-spacing:0.02em;
 }
 
+/* ==========================================================================
+   MOBILE RESPONSIVE FIXES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- GLOBAL ---------- */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    cursor: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero-section {
+    min-height: 100svh;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1.5rem 1rem 5.5rem;
+    gap: 1.8rem;
+  }
+
+  .scene {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tilt {
+    max-width: 100%;
+  }
+
+  .rose-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .rose {
+    width: min(78vw, 320px);
+    max-width: 320px;
+  }
+
+  .stem {
+    margin-top: -8px;
+  }
+
+  .stem svg {
+    width: min(100px, 28vw);
+    height: auto;
+  }
+
+  .rose-shadow {
+    width: min(62vw, 210px);
+    height: 25px;
+  }
+
+  /* ---------- HERO TEXT ---------- */
+
+  .copy {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .copy__label {
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+
+  .copy__label::before,
+  .copy__label::after {
+    width: 18px;
+    margin: 0 0.45em;
+  }
+
+  .copy__line {
+    font-size: clamp(1.7rem, 8vw, 2.6rem);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .signature {
+    font-size: 1rem;
+    margin-top: 0.7rem;
+  }
+
+  /* ---------- SCROLL PROMPT ---------- */
+
+  .scroll-prompt {
+    bottom: 1.2rem;
+    width: calc(100% - 2rem);
+    max-width: 360px;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+
+  .scroll-prompt__text {
+    line-height: 1.5;
+  }
+
+  .scroll-prompt__icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  /* ---------- BIRTHDAY EXPERIENCE ---------- */
+
+  .birthday-experience {
+    width: calc(100% - 1.5rem);
+    max-width: 100%;
+    margin: 0 auto 3rem auto;
+    gap: 2rem;
+  }
+
+  /* ---------- CARDS ---------- */
+
+  .bday-card {
+    width: 100%;
+    padding: 1.7rem 1rem;
+    border-radius: 18px;
+  }
+
+  .bday-badge {
+    max-width: 100%;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    line-height: 1.5;
+    padding: 0.35rem 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .bday-heading {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 0.7rem;
+  }
+
+  .bday-subtext {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ---------- DIVIDER ---------- */
+
+  .bday-divider {
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .bday-divider::before,
+  .bday-divider::after {
+    width: 45px;
+  }
+
+  /* ---------- LOVE LETTER ---------- */
+
+  .bday-letter__body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    gap: 1rem;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .bday-letter__signature {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* ---------- LOVE CARDS ---------- */
+
+  .bday-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .love-card {
+    padding: 1.7rem 1.2rem;
+  }
+
+  /* ---------- CAKE ---------- */
+
+  .cake-wrapper {
+    width: 100%;
+    margin: 2rem 0 1rem;
+    overflow: visible;
+  }
+
+  .cake {
+    width: 220px;
+    height: 150px;
+  }
+
+  .cake-plate {
+    width: 235px;
+    height: 12px;
+  }
+
+  .cake-layer--bottom {
+    width: 200px;
+    height: 42px;
+  }
+
+  .cake-layer--middle {
+    width: 165px;
+    height: 38px;
+  }
+
+  .cake-layer--top {
+    width: 130px;
+    height: 36px;
+  }
+
+  .candle {
+    top: -40px;
+  }
+
+  /* ---------- WISH REVEAL ---------- */
+
+  .wish-reveal {
+    margin-top: 1.5rem;
+    padding: 1.3rem 0.9rem;
+  }
+
+  .wish-reveal__sparkles {
+    font-size: 1.5rem;
+  }
+
+  .wish-reveal__title {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .wish-reveal__text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* ---------- AUDIO PLAYER ---------- */
+
+  .audio-player-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    gap: 0.9rem;
+    border-radius: 16px;
+  }
+
+  .audio-card-play-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .audio-card-play-btn svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .audio-card-info {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .audio-card-artist {
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.5rem;
+  }
+
+  .audio-card-wave {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .wave-bar {
+    flex-shrink: 0;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  .bday-footer {
+    padding: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .bday-footer__sub {
+    font-size: 1.2rem;
+  }
+
+  /* ---------- MUSIC BUTTON ---------- */
+
+  .music-toggle {
+    width: 44px;
+    height: 44px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  /* ---------- AUTOPLAY OVERLAY ---------- */
+
+  .autoplay-overlay {
+    padding: 1rem;
+  }
+
+  .autoplay-overlay__content {
+    width: min(100%, 340px);
+    padding: 1.8rem 1rem;
+    border-radius: 20px;
+  }
+
+  .autoplay-overlay__icon {
+    font-size: 2.4rem;
+  }
+
+  .autoplay-overlay__title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  /* ---------- BACKGROUND EFFECTS ---------- */
+
+  
+  .ambient {
+    width: 110vw;
+    max-width: 500px;
+  }
+}
+
+
+/* ==========================================================================
+   SMALL PHONES
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  .hero-section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    gap: 1.4rem;
+  }
+
+  .rose {
+    width: min(74vw, 285px);
+  }
+
+  .copy {
+    padding: 0 0.25rem;
+  }
+
+  .copy__label {
+    font-size: 0.56rem;
+    letter-spacing: 0.25em;
+  }
+
+  .copy__label::before,
+  .copy__label::after {
+    width: 12px;
+    margin: 0 0.3em;
+  }
+
+  .copy__line {
+    font-size: clamp(1.55rem, 8.5vw, 2.25rem);
+  }
+
+  .birthday-experience {
+    width: calc(100% - 1rem);
+    gap: 1.5rem;
+  }
+
+  .bday-card {
+    padding: 1.45rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .bday-badge {
+    font-size: 0.52rem;
+    letter-spacing: 0.14em;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .bday-heading {
+    font-size: clamp(1.7rem, 8.5vw, 2.2rem);
+  }
+
+  .bday-subtext {
+    font-size: 0.95rem;
+  }
+
+  .bday-letter__body {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .bday-letter__signature {
+    font-size: 1.15rem;
+  }
+
+  .bday-divider::before,
+  .bday-divider::after {
+    width: 30px;
+  }
+
+  /* Smaller cake for very small phones */
+  .cake {
+    width: 200px;
+    height: 145px;
+  }
+
+  .cake-plate {
+    width: 215px;
+  }
+
+  .cake-layer--bottom {
+    width: 185px;
+  }
+
+  .cake-layer--middle {
+    width: 155px;
+  }
+
+  .cake-layer--top {
+    width: 120px;
+  }
+
+  .audio-player-card {
+    padding: 0.85rem;
+  }
+
+  .audio-card-play-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .audio-card-artist {
+    font-size: 0.76rem;
+  }
+
+  .bday-footer {
+    font-size: 0.88rem;
+  }
+
+  .bday-footer__sub {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* ==========================================================================
+   EXTRA SMALL PHONES
+   ========================================================================== */
+
+@media (max-width: 360px) {
+
+  .hero-section {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+  }
+
+  .rose {
+    width: 68vw;
+  }
+
+  .copy__label {
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  .copy__line {
+    font-size: 1.45rem;
+  }
+
+  .birthday-experience {
+    width: calc(100% - 0.7rem);
+  }
+
+  .bday-card {
+    padding: 1.25rem 0.7rem;
+  }
+
+  .bday-heading {
+    font-size: 1.6rem;
+  }
+
+  .bday-letter__body {
+    font-size: 0.94rem;
+  }
+
+  .cake {
+    transform: scale(0.9);
+    transform-origin: center bottom;
+  }
+
+  .audio-player-card {
+    gap: 0.7rem;
+  }
+
+  .audio-card-play-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .audio-card-play-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .music-toggle {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+
+/* ==========================================================================
+   TOUCH DEVICES
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .candle:hover {
+    transform: none;
+  }
+
+  .love-card:hover {
+    transform: none;
+  }
+
+  .audio-card-play-btn:hover {
+    transform: none;
+  }
+
+  .music-toggle:hover {
+    opacity: 0.78;
+  }
+
+  .scroll-prompt:hover {
+    transform: none;
+  }
+}
